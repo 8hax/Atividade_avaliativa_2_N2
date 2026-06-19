@@ -10,20 +10,29 @@ export async function getFilmes(): Promise<Filme[]>
   return dados;
 }
 
-// export async function getFilme(id: string): Promise<Filme> {
 
-// }
+export async function createFilme(filme: CreateFilmeDTO): Promise<void>
+{
+ await fetch(`${API_URL}/filmes`,{
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(filme)
+ });
+}
 
-// export async function createFilmes(filme: CreateFilmeDTO): Promise<void>
-// {
- 
-// }
 
-
-// export async function updateFilme(id: number, filme: UpdateFilmeDTO): Promise<void>
-// {
-    
-// }
+export async function updateFilme(id: number, filme: UpdateFilmeDTO): Promise<void>
+{
+  await fetch(`${API_URL}/filmes/${id}`,{
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(filme)
+ });
+}
 
 export async function deleteFilme(id: number): Promise<void>
 {

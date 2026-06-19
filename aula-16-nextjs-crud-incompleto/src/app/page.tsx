@@ -1,6 +1,7 @@
 import styles from '@/app/page.module.css';
 import FilmeGrid from '@/componentes/FilmesGrid/FilmesGrid';
 import { getFilmes } from '@/services/filme.services';
+import Link from 'next/link';
 
 export default async function Home() {
 
@@ -8,6 +9,9 @@ export default async function Home() {
 
   return (
     <main className={styles.home}>
+      <Link href="/filmes/criar" className={styles.btnAdd}>
+        + Adicionar
+      </Link>
       <FilmeGrid filmes = {filmes}/>
     </main>
   );
